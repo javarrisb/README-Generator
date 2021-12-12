@@ -34,7 +34,28 @@ const renderDescription = description => {
   }
 };
 
-// TODO: Create a function that returns the license section of README
+// Create installation section
+const renderInstallation = installation => {
+  if (installation) {
+    return `In order to use this application, please install:
+    
+    \`\`\`
+    ${installation}
+    \`\`\``
+  } else {
+    return '';
+  }
+};
+
+const renderUsage = usage => {
+  return `${usage}`
+};
+
+const renderContributions = contributions => {
+  return `${contributions}`
+};
+
+// Create a function that returns the license section of README
 function renderLicenseSection(license) {
   // If there is no license, return an empty string
   if (license === "N/A") {
@@ -47,21 +68,29 @@ function renderLicenseSection(license) {
 }
 
 // create the Test Section
-const createTests = tests => {
-  if (!tests) {
-    return "";
-  } else {
-    return `## Tests
-    
+const renderTests = tests => {
+  if (tests) {
+    return `In order to run tests on this application, please install:
     \`\`\`
     ${tests}
     \`\`\`
-    <br />`
+    and in the comman line run \`npm run test\``
+  } else {
+    return '';
+  };
+};
+
+// Create the Questions section
+const renderQuestions = (email, github) => {
+  if (email) {
+    return `If there are any questions about the project, please contact me at ${email}. You can see more of my projects at https://github.com/${github}.
+    `;
+  } else {
+    return '';
   }
-}
+};
 
-
-// TODO: Create a function to generate markdown for README
+// Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
 
@@ -88,29 +117,30 @@ function generateMarkdown(data) {
   ## Installation
 
   \`\`\`
-  ${data.installation}
+  ${renderInstallation(data.installation)}
   \`\`\`
   <br />
 
   ## Usage
 
-  ${data.usage} <br />
+  ${renderUsage(data.usage)} <br />
+
+  ## License
+  ${renderLicenseBadge(data.license)}
 
   ${renderLicenseSection(data.license)} <br />
 
   ## Contributions
 
-  ${data.contributions} <br />
+  ${renderContributions(data.contributions)} <br />
 
-  
-  ${createTests(data.tests)} <br />
+  ## Tests 
+
+  ${renderTests(data.tests)} <br />
 
   ## Questions?
 
-    If there are any questions about the project, please reach me at:
-    ${data.email} <br />
-    Take a look at the rest of my work at:
-    [${data.github}]{https://github.com/${data.github}/) <br />}
+  ${renderQuestions(data.email)}
 
   _This README was generated with care by 
 `;

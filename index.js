@@ -21,7 +21,7 @@ const fs = require("fs");
 const inquirer = require("inquirer");
 const util = require("util");
 const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown.js");
+const generatePage = require("./utils/generateMarkdown.js");
 
 
 // TODO: Create an array of questions for user input
@@ -128,9 +128,9 @@ const questions = () => {
     ]);
 };
 
-// TODO: Create a function to write README file
+// Create a function to write README file
 function writeToFile(fileName, data) {
-  fs.writeFile(`./dist/${fileName}`, data, err => {
+  fs.writeFile(`.\dist\README.md`, data, err => {
     if (err) {
       throw err
     };
@@ -141,8 +141,12 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   questions()
-  .then(inquirerResponses => generateMarkdown())
-  .then(generateReadme => writeToFile('README.md', generateReadme))
+  .then(data => {
+    return generatePage(data);
+  })
+  .then(data => {
+    return writeToFile('README.md', data);
+  })
   .catch(err => {
     console.log(err);
   });
