@@ -73,7 +73,7 @@ const renderTests = tests => {
     \`\`\`
     ${tests}
     \`\`\`
-    and in the comman line run \`npm run test\``
+    and in the command line run \`npm run test\``
   } else {
     return '';
   };
