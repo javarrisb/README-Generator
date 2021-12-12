@@ -82,11 +82,9 @@ const renderTests = tests => {
 // Create the Questions section
 const renderQuestions = (email, github) => {
   if (email) {
-    return `If there are any questions about the project, please contact me at ${email}.
-    `;
-  } else if (github) {
-    return `You can see more of my projects at: (https://github.com/${github}/).`;
-  } else{
+    return `If there are any questions about the project, please contact me at ${email}. To see more of my work visit: https://github.com/javarrisb`
+    ;
+  } else {
     return '';
   }
 };
@@ -148,7 +146,6 @@ function generateMarkdown(data) {
 
   ${renderQuestions(data.email)}
 
-  This README was generated with care by Javarrisb
 `;
 }
 
