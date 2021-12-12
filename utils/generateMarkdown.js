@@ -81,13 +81,16 @@ const renderTests = tests => {
 
 // Create the Questions section
 const renderQuestions = (email, github) => {
-  if (email && github) {
-    return `If there are any questions about the project, please contact me at ${email}. You can see more of my projects at: (https://github.com/${github}/).
+  if (email) {
+    return `If there are any questions about the project, please contact me at ${email}.
     `;
-  } else {
+  } else if (github) {
+    return `You can see more of my projects at: (https://github.com/${github}/).`;
+  } else{
     return '';
   }
 };
+
 
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -126,6 +129,7 @@ function generateMarkdown(data) {
 
   ## Screenshot 
 
+  ![Screenshot](readme-generator\images\Screenshot .png)
 
   ## License
   ${renderLicenseBadge(data.license)}
