@@ -90,12 +90,7 @@ const renderQuestions = (email, github) => {
     return '';
   }
 };
- // Create screenshot
- function screenShot(screenshot) {
-   if (screenshot) {
-     return `![Screenshot](readme-generator\images\Screenshot .png)`;
-   }
- };
+
 
 // Create a function to generate markdown for README
 function generateMarkdown(data) {
@@ -134,7 +129,7 @@ function generateMarkdown(data) {
 
   ## Screenshot 
 
-  ${screenShot}
+  ![Screenshot ](https://user-images.githubusercontent.com/89273544/145730253-4d1c7558-2490-472f-93af-4f62fc11ceec.png)
 
   ## License
   ${renderLicenseBadge(data.license)}
