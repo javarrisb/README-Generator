@@ -47,10 +47,12 @@ const renderInstallation = installation => {
   }
 };
 
+// Create the Usage section
 const renderUsage = usage => {
   return `${usage}`
 };
 
+// Create the Contribution section
 const renderContributions = contributions => {
   return `${contributions}`
 };
@@ -100,7 +102,8 @@ function generateMarkdown(data) {
    
   ## Description
   ${renderDescription(data.description)} <br />
-
+  
+  You can view the walkthrough here: https://youtu.be/u-7OuIpMsoA
 
   ## Table of Contents
 
