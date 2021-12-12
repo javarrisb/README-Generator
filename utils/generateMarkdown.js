@@ -124,6 +124,9 @@ function generateMarkdown(data) {
 
   ${renderUsage(data.usage)} <br />
 
+  ## Screenshot 
+
+
   ## License
   ${renderLicenseBadge(data.license)}
 
@@ -141,7 +144,7 @@ function generateMarkdown(data) {
 
   ${renderQuestions(data.email)}
 
-  _This README was generated with care by 
+  This README was generated with care by Javarrisb
 `;
 }
 
