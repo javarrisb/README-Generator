@@ -1,7 +1,7 @@
 // Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   if (license) {
-    return `![Github license]${license}(https://img.shields.io/badge/License-ISC-blue.svg)`;
+    return `![license](https://img.shields.io/badge/License-ISC-blue.svg)`;
     // If there is no license, return an empty string
   } else {
     return "";
@@ -98,8 +98,6 @@ function generateMarkdown(data) {
 
   ${renderLicenseBadge(data.license)} <br />
    
-  (https://img.shields.io/badge/License-ISC-blue.svg)
-  
   ## Description
   ${renderDescription(data.description)} <br />
 
