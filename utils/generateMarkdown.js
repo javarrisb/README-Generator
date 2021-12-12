@@ -82,7 +82,7 @@ const renderTests = tests => {
 // Create the Questions section
 const renderQuestions = (email, github) => {
   if (email) {
-    return `If there are any questions about the project, please contact me at ${email}. You can see more of my projects at https://github.com/${github}/.
+    return `If there are any questions about the project, please contact me at ${email}. You can see more of my projects at: [${github}](https://github.com/${github}/).
     `;
   } else {
     return '';
