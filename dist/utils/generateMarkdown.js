@@ -1,35 +1,49 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
+  if (license) {
+    return `![Github license]${license}(https://img.shields.io/badge/License-ISC-blue.svg)`;
+    // If there is no license, return an empty string
+  } else {
+    return "";
+  }
+};
+
+// Create a function that returns the license link
+function renderLicenseLink(license) {
+  if (license) {
+    return `\n* [License](#license)\n`;
+    // If there is no license, return an empty string
+  } else {
+    return "";
+  }
+}
+
+// Create title 
+const renderTitle = projectTitle => {
+  if (projectTitle) {
+    return `${projectTitle}`
+  } else {
+    return "";
+  }
+};
+
+// Create the description section
+const renderDescription = description => {
+  if (description) {
+    return `${description}`
+  }
+};
+
+// TODO: Create a function that returns the license section of README
+function renderLicenseSection(license) {
+  // If there is no license, return an empty string
   if (license === "N/A") {
     return "";
   } else {
-    return `![Github license]${license}(https://img.shields.io/badge/License-ISC-blue.svg)`;
-  }
-}
-  
-
-// TODO: Create a function that returns the license link
-
-function renderLicenseLink(license) {
- // If there is no license, return an empty string
- if (license === "N/A") {
-   return "";
- } else {
-   return `\n* [License](#license)\n`;
- }
-
- // TODO: Create a function that returns the license section of README
-
-function renderLicenseSection(license) { 
-// If there is no license, return an empty string
-if (license === "N/A") {
-  return "";
-} else {
-  return `## License
+    return `## License
   
   This project is licensed under the ${license} license.`;
-}
+  }
 }
 
 // create the Test Section
@@ -51,12 +65,12 @@ const createTests = tests => {
 function generateMarkdown(data) {
   return `
 
-  # ${data.projecttTitle} <br />
+  # ${renderTitle(data.projectTitle)} <br />
 
   ${renderLicenseBadge(data.license)} <br />
 
   ## Description
-  ${data.description} <br />
+  ${renderDescription(data.description)} <br />
 
 
   ## Table of Contents
@@ -101,6 +115,6 @@ function generateMarkdown(data) {
   _This README was generated with care by 
 `;
 }
-}
+
 
 module.exports = generateMarkdown;

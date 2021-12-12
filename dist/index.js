@@ -140,13 +140,15 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-  return inquirer.prompt(questions);
-};
-  
-// Function call to initialize app
-init()
-  .then(answers => generateMarkdown(answers))
+  questions()
+  .then(inquirerResponses => generateMarkdown())
   .then(generateReadme => writeToFile('README.md', generateReadme))
   .catch(err => {
     console.log(err);
   });
+  
+};
+  
+// Function call to initialize app
+init()
+  
